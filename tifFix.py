@@ -8,7 +8,7 @@ import os
 gdal.UseExceptions()
 
   """
-  This function will iterate through input directory and make sure files are in correct proection.
+  The projCheck function will iterate through input directory and make sure files are in correct proection.
   This should be run on both pre and post processed images to double-check integrity.
   I'm pretty sure the GetProjection function is the incorrect one to use but it's pretty much a
   placeholder for now.
@@ -17,6 +17,8 @@ def projCheck(r):
   if not r.GetProjection is WGS84:
     print "file %s is not in WGS84 projection. Cannot continue." %r
     sys.exit()
+### This should take an input file and check whether or not it already is assigned a projection. If coordinates
+### are not found, then coordinates of a matching filename are applied.
 
 def applyRefs(input, outDir):
   print "processing %s" %input
